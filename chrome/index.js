@@ -8,12 +8,10 @@ inputBtn.addEventListener("click", function() {
     console.log(mySave)
 })
 
+let listItems = ""
 for (let i=0; i < mySave.length; i++) {
-    // ulEl.innerHTML += "<li>" + mySave[i] + "</li>"
-    const li = document.createElement("li")
-    li.textContent = mySave[i]
-    ulEl.append(li)
+    listItems += "<li>" + mySave[i] + "</li>"
 }
 
-
+ulEl.innerHTML = listItems
 
