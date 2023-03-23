@@ -2,8 +2,9 @@ let myItems = []
 const ulEl = document.getElementById("ul-el")
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
+const deleteBtn = document.getElementById("delete-btn")
 
-let itemsFromLocalStorage = JSON.parse(localStorage.getItem("myItems"))
+const itemsFromLocalStorage = JSON.parse(localStorage.getItem("myItems"))
 // Check if itemsFromLocalStorage is truthy 
 if (itemsFromLocalStorage) {
     myItems = itemsFromLocalStorage
@@ -16,6 +17,12 @@ inputBtn.addEventListener("click", function() {
     localStorage.setItem("myItems", JSON.stringify(myItems))
     renderItems()
     console.log(localStorage.getItem("myItems"))
+})
+
+deleteBtn.addEventListener("dblclick", function() {
+    localStorage.clear()
+    myItems = []
+    renderItems()
 })
 
 function renderItems() {
