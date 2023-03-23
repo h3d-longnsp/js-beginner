@@ -2,6 +2,7 @@ let myItems = []
 const ulEl = document.getElementById("ul-el")
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
+const tabBtn = document.getElementById("tab-btn")
 const deleteBtn = document.getElementById("delete-btn")
 
 const itemsFromLocalStorage = JSON.parse(localStorage.getItem("myItems"))
@@ -29,7 +30,12 @@ inputBtn.addEventListener("click", function() {
     inputEl.value = ""
     localStorage.setItem("myItems", JSON.stringify(myItems))
     render(myItems)
-    console.log(localStorage.getItem("myItems"))
+})
+
+tabBtn.addEventListener("click", function() {
+    myItems.push(url)
+    localStorage.setItem("myItems", JSON.stringify(myItems))
+    render(myItems)
 })
 
 deleteBtn.addEventListener("dblclick", function() {
