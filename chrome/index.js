@@ -8,33 +8,32 @@ const itemsFromLocalStorage = JSON.parse(localStorage.getItem("myItems"))
 // Check if itemsFromLocalStorage is truthy 
 if (itemsFromLocalStorage) {
     myItems = itemsFromLocalStorage
-    renderItems()
+    render(myItems)
 }
 
-inputBtn.addEventListener("click", function() {
-    myItems.push(inputEl.value)
-    inputEl.value = ""
-    localStorage.setItem("myItems", JSON.stringify(myItems))
-    renderItems()
-    console.log(localStorage.getItem("myItems"))
-})
-
-deleteBtn.addEventListener("dblclick", function() {
-    localStorage.clear()
-    myItems = []
-    renderItems()
-})
-
-function renderItems() {
+function render(items) {
     let listItems = ""
-    for (let i=0; i < myItems.length; i++) {
-        // listItems += "<li><a target='_blank' href='" + myItems[i] + "'>" + myItems[i] + "</a></li>"
+    for (let i=0; i < items.length; i++) {
         listItems += `<li>
-                        <a target="_blank" href="${myItems[i]}">
-                            ${myItems[i]}
+                        <a target="_blank" href="${items[i]}">
+                            ${items[i]}
                         </a>
                       </li>
         `
     }
     ulEl.innerHTML = listItems
 }
+
+inputBtn.addEventListener("click", function() {
+    myItems.push(inputEl.value)
+    inputEl.value = ""
+    localStorage.setItem("myItems", JSON.stringify(myItems))
+    render(myItems)
+    console.log(localStorage.getItem("myItems"))
+})
+
+deleteBtn.addEventListener("dblclick", function() {
+    localStorage.clear()
+    myItems = []
+    render(myItems)
+})
