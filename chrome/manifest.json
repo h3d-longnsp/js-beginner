@@ -1,9 +1,17 @@
 {
     "manifest_version": 3,
-    "version": "1.0",
     "name": "Links tracker",
+    "version": "1.0",
     "action": {
         "default_popup": "index.html",
         "default_icon": "icon.png"
-    }
+    },
+    "description": "Bookmark your websites and urls",
+    "icons": {
+        "16": "icon.png",
+        "32": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "author": "hydroxyzine@house3d.net"
 }
