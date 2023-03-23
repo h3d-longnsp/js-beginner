@@ -3,10 +3,19 @@ const ulEl = document.getElementById("ul-el")
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 
+let itemsFromLocalStorage = JSON.parse(localStorage.getItem("myItems"))
+// Check if itemsFromLocalStorage is truthy 
+if (itemsFromLocalStorage) {
+    myItems = itemsFromLocalStorage
+    renderItems()
+}
+
 inputBtn.addEventListener("click", function() {
     myItems.push(inputEl.value)
     inputEl.value = ""
+    localStorage.setItem("myItems", JSON.stringify(myItems))
     renderItems()
+    console.log(localStorage.getItem("myItems"))
 })
 
 function renderItems() {
