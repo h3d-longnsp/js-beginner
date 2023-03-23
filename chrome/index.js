@@ -33,9 +33,11 @@ inputBtn.addEventListener("click", function() {
 })
 
 tabBtn.addEventListener("click", function() {
-    myItems.push(url)
-    localStorage.setItem("myItems", JSON.stringify(myItems))
-    render(myItems)
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        myItems.push(tabs[0].url)
+        localStorage.setItem("myItems", JSON.stringify(myItems))
+        render(myItems)
+    })
 })
 
 deleteBtn.addEventListener("dblclick", function() {
