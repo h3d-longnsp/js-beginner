@@ -5,6 +5,7 @@ const inputBtn = document.getElementById("input-btn")
 
 inputBtn.addEventListener("click", function() {
     myItems.push(inputEl.value)
+    inputEl.value = ""
     renderItems()
 })
 
